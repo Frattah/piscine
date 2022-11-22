@@ -12,10 +12,9 @@
 
 #include <unistd.h>
 
-// Stringa che converte un numero in una stringa
 char	*my_itoa(char *src, int nb, int n)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (nb > 0)
@@ -34,7 +33,7 @@ char	*my_itoa(char *src, int nb, int n)
 
 int	valida(char *str)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (str[i + 1] != '\0')
@@ -59,8 +58,8 @@ int	my_pow(int i, int arg)
 
 int	max(int n)
 {
-	int		i;
-	int		sum;
+	int	i;
+	int	sum;
 
 	sum = 0;
 	i = 9;
@@ -74,8 +73,8 @@ int	max(int n)
 
 void	ft_print_combn(int n)
 {
-	int		i;
-	int		mx;
+	int	i;
+	int	mx;
 	char	nb_str[11];
 
 	mx = max(n);
@@ -98,4 +97,8 @@ void	ft_print_combn(int n)
 		}
 		i++;
 	}
+}
+
+int main(void){
+	ft_print_combn(22222);
 }

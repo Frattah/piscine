@@ -14,7 +14,7 @@
 
 void	putnbr(int n)
 {
-	int		n_perm;
+	int	n_perm;
 	char	n_str[1];
 
 	n_perm = n;
