@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 08:37:05 by frmonfre          #+#    #+#             */
-/*   Updated: 2022/11/21 09:36:47 by frmonfre         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:53:18 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_print_numbers(void)
 {
+	int		i;
 	char	c;
 
-	c = '0';
-	while (c <= '9')
+	i = 0;
+	while (i < 10)
 	{
+		c = '0' + i;
 		write(1, &c, 1);
-		c++;
+		i++;
 	}
 }
-
-int main(){ft_print_number();}

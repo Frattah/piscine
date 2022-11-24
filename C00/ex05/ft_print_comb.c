@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 09:13:39 by frmonfre          #+#    #+#             */
-/*   Updated: 2022/11/21 09:41:18 by frmonfre         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:53:39 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	putnbr(int n)
 {
-	int	n_perm;
+	int		n_perm;
 	char	n_str[1];
 
 	n_perm = n;

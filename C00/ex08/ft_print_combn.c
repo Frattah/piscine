@@ -6,99 +6,76 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 08:34:15 by frmonfre          #+#    #+#             */
-/*   Updated: 2022/11/21 09:40:22 by frmonfre         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:48:37 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*my_itoa(char *src, int nb, int n)
+void	ft_putchar(char c)
 {
+	write(1, &c, 1);
+}
+
+void	ft_putout(int nb, int *tab, int pos)
+{
+	int	i;
+
+	if (pos == 1)
+	{
+		ft_putchar(',');
+		ft_putchar(' ');
+	}
+	i = 0;
+	while (i < nb)
+	{
+		ft_putchar(tab[i] + '0');
+		i++;
+	}
+}
+
+void	ft_print_combn_increment(int nb, int *tab)
+{
+	int	i;
+	int	max;
+
+	i = nb - 1;
+	max = 9;
+	while (tab[i] == max)
+	{
+		i -= 1;
+		max -= 1;
+	}
+	tab[i] += 1;
+	while (i < nb)
+	{
+		tab[i + 1] = tab[i] + 1;
+		i += 1;
+	}
+}
+
+void	ft_print_combn(int nb)
+{
+	int	tab[10];
 	int	i;
 
 	i = 0;
-	while (nb > 0)
+	while (i < nb)
 	{
-		src[n - i - 1] = nb % 10 + '0';
-		nb = nb / 10;
+		tab[i] = i;
 		i++;
 	}
-	while (i < n)
+	ft_putout(nb, tab, 0);
+	while (tab[0] != 10 - nb || tab[nb - 1] != 9)
 	{
-		src[0] = '0';
-		i++;
-	}
-	return (src);
-}
-
-int	valida(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i + 1] != '\0')
-	{
-		if (str[i] >= str[i + 1])
+		if (tab[nb - 1] != 9)
 		{
-			return (0);
+			tab[nb - 1] += 1;
 		}
-		i++;
-	}
-	return (1);
-}
-
-int	my_pow(int i, int arg)
-{
-	if (arg == 0)
-	{
-		return (1);
-	}
-	return (i * my_pow(i, arg - 1));
-}
-
-int	max(int n)
-{
-	int	i;
-	int	sum;
-
-	sum = 0;
-	i = 9;
-	while (i > 9 - n)
-	{
-		sum += i * my_pow(10, 10 - i - 1);
-		i--;
-	}
-	return (sum);
-}
-
-void	ft_print_combn(int n)
-{
-	int	i;
-	int	mx;
-	char	nb_str[11];
-
-	mx = max(n);
-	nb_str[n] = '\0';
-	i = 1;
-	while (i < my_pow(10, n))
-	{
-		my_itoa(nb_str, i, n);
-		if (valida(nb_str))
+		else
 		{
-			write (1, nb_str, n);
-			if (i != mx)
-			{
-				write (1, ", ", 2);
-			}
+			ft_print_combn_increment(nb, tab);
 		}
-		if (i > mx)
-		{
-			break ;
-		}
-		i++;
+		ft_putout(nb, tab, 1);
 	}
-}
-
-int main(void){
-	ft_print_combn(22222);
 }

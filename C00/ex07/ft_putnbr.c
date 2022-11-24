@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 08:42:58 by frmonfre          #+#    #+#             */
-/*   Updated: 2022/11/21 09:40:36 by frmonfre         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:11:59 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int	my_pow(int a, int b)
 	{
 		return (1);
 	}
-	return (a * my_pow(a, b-1));
+	return (a * my_pow(a, b - 1));
 }
 
 void	ft_putnbr(int nb)
 {
-	int	digit;
-	char	nb_string[1];	
+	int		digit;
+	char	nb_string[1];
 
 	if (nb < 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 08:31:46 by frmonfre          #+#    #+#             */
-/*   Updated: 2022/11/21 09:36:11 by frmonfre         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:53:05 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	ft_print_reverse_alphabet(void)
 {
+	int		i;
 	char	c;
 
-	c = 'z';
-	while (c >= 'a')
+	i = 0;
+	while (i < 26)
 	{
+		c = 'z' - i;
 		write(1, &c, 1);
-		c--;
+		i++;
 	}
 }
