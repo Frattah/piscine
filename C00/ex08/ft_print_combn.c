@@ -6,7 +6,7 @@
 /*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 08:34:15 by frmonfre          #+#    #+#             */
-/*   Updated: 2022/11/23 10:48:37 by frmonfre         ###   ########.fr       */
+/*   Updated: 2022/11/24 09:23:44 by frmonfre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,28 +54,28 @@ void	ft_print_combn_increment(int nb, int *tab)
 	}
 }
 
-void	ft_print_combn(int nb)
+void	ft_print_combn(int n)
 {
 	int	tab[10];
 	int	i;
 
 	i = 0;
-	while (i < nb)
+	while (i < n)
 	{
 		tab[i] = i;
 		i++;
 	}
-	ft_putout(nb, tab, 0);
-	while (tab[0] != 10 - nb || tab[nb - 1] != 9)
+	ft_putout(n, tab, 0);
+	while (tab[0] != 10 - n || tab[n - 1] != 9)
 	{
-		if (tab[nb - 1] != 9)
+		if (tab[n - 1] != 9)
 		{
-			tab[nb - 1] += 1;
+			tab[n - 1] += 1;
 		}
 		else
 		{
-			ft_print_combn_increment(nb, tab);
+			ft_print_combn_increment(n, tab);
 		}
-		ft_putout(nb, tab, 1);
+		ft_putout(n, tab, 1);
 	}
 }
