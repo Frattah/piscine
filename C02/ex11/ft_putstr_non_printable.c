@@ -1,53 +1,84 @@
-#include <string.h>
-#include <stdlib.h>
 #include <stdio.h>
 
-
-void ft_putstr_non_printable(char *str)
+int	ft_strlen(char *str)
 {
-	int i = 0;
+	int len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+void	traslation(char *str, int start)
+{
+	int i;
 	int j;
-	int val;
-	int strlen = 0;
-	while(str[i]!='\0')
-	{
-		i++;
-		strlen++;
-	}
-	i=0;
-	while(str[i]!='\0')
+
+	j = 0;
+	while (j < 2)
 	{	
-		val = str[i];
-		if(val>=0 && val<=31 || val!=127 || val>=-128 && val<=-1)
+		i = ft_strlen(str) + 1;
+		while (i > start)
 		{
-			str[i] = 92;
-			j = strlen+2;		
-			while(j>i+1)
-			{
-				str[j] = str[j-2];
-				j--;
-			}
-			val = val%16;
-			if(val>=10)
-				str[i+1] = 'a'-10+val;
-			else 
-				str[i+1] = val+'0';
-			val = val%16;
-			if(val>=10)
-				str[i+2] = 'a'-10+val;
-			else 
-				str[i+2] = val+'0';
-			i = i+1;
+			str[i] = str[i-1];
+			i--;
 		}
-		i++;
+		j++;
 	}
 }
 
-
-int main(void)
+char	*exadecimal(char *str, int i)
 {
-	char stringa[100];
-	fgets(stringa,100,stdin);
-	ft_putstr_non_printable(stringa);
-	puts(stringa);
+	str[0] = '\\';
+	if (i % 16 >= 10)
+		str[2] = i % 16 - 10 + 'a';
+	else
+		str[2] = i % 16 + '0';
+	if (i / 16 % 16 >= 10)
+		str[1] = i / 16 % 16 - 10 + 'a';
+       	else
+		str[1] = i / 16 % 16 + '0';	
+	return (str);
+}
+
+void	ft_strcpy_ex(char *s1, char *s2, int start)
+{
+	int i;
+
+	i = 0;
+	while (i < 3)
+	{
+		s1[start + i] = s2[i];
+		i++;
+	}
+
+}
+
+void	ft_put_non_printable(char *str)
+{
+	int i;
+	char ex[3];
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] <= 32 || str[i] > 126)
+		{
+			traslation(str,i);
+			ft_strcpy_ex(str,exadecimal(ex,str[i]),i);
+		}
+		i++;
+	}	
+}
+
+#include <string.h>
+
+int main()
+{
+	char str[50];
+	fgets(str,50,stdin);
+	str[strlen(str)-1] = '\0';
+	ft_put_non_printable(str);
+	puts(str);
 }

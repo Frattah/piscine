@@ -30,18 +30,22 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strstr(char *str, char *fin)
 {
 	int i;
-	int to_find_len;
+	int fin_len;
+	int str_len;
 
-	to_find_len = ft_strlen(to_find);
+	i = 0;
+	str_len = ft_strlen(str);
+	fin_len = ft_strlen(fin);
 	while (*str)
 	{
-		if (!strncmp(str,to_find,to_find_len))
+		if (fin_len < str_len - i && !ft_strncmp(str,fin,fin_len))
 				{
 					return (str);
 				}
+		i++;
 		str++;
 	}
 	return (0);

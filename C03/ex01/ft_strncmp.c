@@ -3,7 +3,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	int i;
 
 	i = 0;
-	while (i < n)
+	while (i < n - 1)
 	{
 		if (s1[i] < s2[i])
 		{
@@ -15,5 +15,5 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 		}
 		i++;
 	}
-	return (0);
+	return (s1[i] - s2[i]);
 }
