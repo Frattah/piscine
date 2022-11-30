@@ -1,50 +1,31 @@
-int	ft_pow(int a, int b){
-	if (b == 0)
-		return (1);
-	return (a * ft_pow(a, b - 1));
+char	*skip_space(char *str)
+{
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	return (str);
 }
 
-int	skip(char *str, int *meno)
+char	*skip_sign(char *str, int *sign)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] == ' ' || str[i] == 9 || str[i] == '\n'
-					|| str[i] == '+' || str[i] == '-') {
-		if (str[i] == '-')
-			meno[0] *= -1;
-		i++;
+	*sign = 1;
+	while (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			*sign *= -1;
+		str++;
 	}
-	return (i);
-}
-
-int	my_strlen(char *str, int start)
-{
-	int	i;
-
-	i = 0;
-	while (str[i + start] >= '0' && str[i + start] <= '9')
-		i++;
-	return (i);
+	return (str);
 }
 
 int	ft_atoi(char *str)
 {
-	int	meno[1];
 	int	nb;
-	int	j;
-	int	start;
-	int	len;
+	int	sign;
+	char	*digit;
 
-	meno[0] = 1;
 	nb = 0;
-	j = 1;
-	start = skip(str, meno);
-	len = my_strlen(str, start);
-	while (len - j >= 0)
-	{
-		nb += (str[start + len - j] - '0') * ft_pow(10, j - 1);
-		j++;
-	}
-	return (meno[0] * nb);
+	digit = skip_sign(skip_space(str), &sign);
+	while (*digit >= '0' && *digit <= '9')
+		nb = (nb * 10) + *digit++ - '0';
+	return (sign * nb);
 }
