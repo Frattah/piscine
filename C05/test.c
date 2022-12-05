@@ -8,16 +8,18 @@
 #include "ex07/ft_find_next_prime.c"
 #include <stdio.h>
 #include <limits.h>
+#include <stdlib.h>
 
-int main()
+int main(int argc, char **argv)
 {
-	int x;
-	scanf("%d", &x);
 //	printf("iter_fact = %d\n", ft_iterative_factorial(x));
 //	printf("rec_fact  = %d\n", ft_recursive_factorial(x));
-//	printf("iter_pow  = %d\n", ft_iterative_power(x,7));
-//	printf("rec_pow   = %d\n", ft_recursive_power(x,7));
-//	printf("fibonacci = %d\n", ft_fibonacci(x));
-//	printf("is_prime  = %d\n", ft_is_prime(x));
-	printf("next_prime = %d\n", ft_find_next_prime(x));
+//	printf("iter_pow  = %d\n", ft_iterative_power(atoi(argv[1]),atoi(argv[2])));
+//	printf("rec_pow   = %d\n", ft_recursive_power(atoi(argv[1]),atoi(argv[2])));
+//	for (int i = 0; i>= 0; i++)
+//		printf("%d = %d		", i, ft_fibonacci(i))
+//	for (int i = 0; i >= 0; i++)
+//		printf("%d = %d		", i, ft_is_prime(i));
+	for (int i = 0; i >= 0; i++)
+		printf("%d = %d		", i, ft_find_next_prime(i));
 }

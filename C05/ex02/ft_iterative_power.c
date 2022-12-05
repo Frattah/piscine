@@ -1,20 +1,12 @@
 int	ft_iterative_power(int nb, int power)
 {
-	int	nb_perm;
+	int	result;
 
-	nb_perm = nb;
-	if (power >= 0)
-	{
-		if (nb == 0)
-			return (1);
-		while (power-- > 1)
-		{
-			nb *= nb_perm;
-		}
-		return (nb);
-	}
-	else
-	{
+	result = 1;
+	if (power < 0)
 		return (0);
-	}
+	else
+		while (power-- > 0)
+			result *= nb;
+	return (result);
 }
