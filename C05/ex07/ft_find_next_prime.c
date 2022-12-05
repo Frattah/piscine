@@ -42,7 +42,7 @@ int	ft_find_next_prime(int nb)
 		return (2);
 	else
 		i = nb;
-	while (!ft_is_prime(i) && i < 200)
+	while (!ft_is_prime(i))
 		i += 2;
 	return (i);
 }
