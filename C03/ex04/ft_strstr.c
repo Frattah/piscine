@@ -1,51 +1,35 @@
-int     ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-        int i;
+	int	i;
 
-        i = 0;
-        while (i < n)
-        {
-                if (s1[i] < s2[i])
-                {
-                        return (s1[i] - s2[i]);
-                }
-                if (s1[i] > s2[i])
-                {
-                        return (s1[i] - s2[i]);
-                }
-                i++;
-        }
-        return (0);
+	i = -1;
+	while (++i < n && s1[i] && s2[i])
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+	return (0);
 }
 
 int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
-	{
 		i++;
-	}
 	return (i);
 }
 
-char	*ft_strstr(char *str, char *fin)
+char	*ft_strstr(char *str, char *find)
 {
-	int i;
-	int fin_len;
-	int str_len;
+	int	i;
+	int	find_l;
 
 	i = 0;
-	str_len = ft_strlen(str);
-	fin_len = ft_strlen(fin);
+	find_l = ft_strlen(find);
 	while (*str)
 	{
-		if (fin_len < str_len - i && !ft_strncmp(str,fin,fin_len))
-				{
-					return (str);
-				}
-		i++;
+		if (!ft_strncmp(str, find, find_l))
+			return (str);
 		str++;
 	}
 	return (0);
