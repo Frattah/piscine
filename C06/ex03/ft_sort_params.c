@@ -1,40 +1,27 @@
 #include <unistd.h>
 
-void	putstr(char *str)
+void	ft_putstr(char *str)
 {
 	while (*str)
-	{
-		write(1,str,1);
-		str++;
-	}
+		write(1, str++, 1);
 }
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
-	i = 0;
-	while (s1[i])
-	{
-		if (s1[i] < s2[i])
-		{
+	i = -1;
+	while (s1[++i])
+		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
-		}
-		if (s1[i] > s2[i])
-		{
-			return (s1[i] - s2[i]);
-		}
-		else
-			i++;
-	}
 	return (0);
 }
 
-void	bubbleSort(int argc, char **argv)
+void	bubble_sort(int argc, char **argv)
 {
-	int i;
-	int j;
-	char *temp;
+	int	i;
+	int	j;
+	char	*temp;
 
 	j = 1;
 	while (j < argc)
@@ -42,7 +29,7 @@ void	bubbleSort(int argc, char **argv)
 		i = 1;
 		while (i < argc - 1)
 		{
-			if (ft_strcmp(argv[i], argv[i+1]) > 0)
+			if (ft_strcmp(argv[i], argv[i + 1]) > 0)
 			{
 				temp = argv[i];
 				argv[i] = argv[i + 1];
@@ -56,13 +43,13 @@ void	bubbleSort(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	bubbleSort(argc, argv);
 	while (i < argc)
 	{
-		putstr(argv[i++]);
+		ft_putstr(argv[i++]);
 		write(1, "\n", 1);
 	}
 }

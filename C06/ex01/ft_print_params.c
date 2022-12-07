@@ -1,12 +1,9 @@
 #include <unistd.h>
 
-void	putstr(char *str)
+void	ft_putstr(char *str)
 {
 	while (*str)
-	{
-		write(1,str,1);
-		str++;
-	}
+		write(1, str++, 1);
 }
 
 int	main(int argc, char **argv)
@@ -16,8 +13,7 @@ int	main(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		putstr(argv[i]);
+		ft_putstr(argv[i++]);
 		write(1, "\n", 1);
-		i++;
 	}
 }
