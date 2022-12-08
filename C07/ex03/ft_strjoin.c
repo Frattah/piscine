@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: frmonfre <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/08 11:36:50 by frmonfre          #+#    #+#             */
+/*   Updated: 2022/12/08 11:48:44 by frmonfre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 int	ft_strlen(char *s)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (s[i])
@@ -12,9 +24,9 @@ int	ft_strlen(char *s)
 
 void	ft_join(int size, char **strs, char *sep, char *ret)
 {
-	int	i;
-	int	j;
-	int	k;
+	int		i;
+	int		j;
+	int		k;
 
 	k = 0;
 	i = 0;
@@ -36,9 +48,9 @@ void	ft_join(int size, char **strs, char *sep, char *ret)
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	char	*ret;
-	int	i;
-	int	len;
-	int	sep_len;
+	int		i;
+	int		len;
+	int		sep_len;
 
 	if (strs == 0 || sep == 0)
 		return (0);
